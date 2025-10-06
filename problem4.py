@@ -32,7 +32,10 @@ def count_words(filename):
     """
     # TODO: Open file and count words
     # Hint: Use split() to separate words
-    pass
+    with open(filename, 'r') as f:
+        content = f.read()
+    words = content.split()
+    return len(words)
 
 
 def count_lines(filename):
@@ -46,7 +49,8 @@ def count_lines(filename):
         int: Total number of lines
     """
     # TODO: Open file and count lines
-    pass
+    with open(filename, 'r') as f:
+        return len(f.readlines())
 
 
 def count_characters(filename, include_spaces=True):
@@ -62,8 +66,17 @@ def count_characters(filename, include_spaces=True):
     """
     # TODO: Open file and count characters
     # If include_spaces is False, don't count spaces
-    pass
+    with open(filename, 'r') as f:
+        content = f.read()
 
+    if include_spaces:
+        return len(content)
+    else:
+        count = 0
+        for ch in content:
+            if not ch.isspace():
+                count += 1
+        return count
 
 def find_longest_word(filename):
     """
@@ -77,8 +90,22 @@ def find_longest_word(filename):
     """
     # TODO: Find the longest word
     # Hint: You might need to remove punctuation
-    pass
+    with open(filename, 'r') as file:
+        text = file.read()
 
+    clean_text = ""
+    for ch in text:
+        if ch.isalpha() or ch.isspace():
+            clean_text += ch
+
+    words = clean_text.split()
+
+    longest_word = ""
+    for word in words:
+        if len(word) > len(longest_word):
+            longest_word = word
+
+    return longest_word
 
 def word_frequency(filename):
     """
@@ -100,6 +127,14 @@ def word_frequency(filename):
     # TODO: Convert to lowercase
     # TODO: Remove punctuation (use string.punctuation)
     # TODO: Count frequency of each word
+    with open(filename, 'r') as file:
+        text = file.read()
+
+    text = text.lower()
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    words = text.split()
+    for word in words:
+        frequency[word] = frequency.get(word, 0) + 1
 
     return frequency
 
