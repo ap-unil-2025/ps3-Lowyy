@@ -1,3 +1,7 @@
+70924d7 Personalize hello message
+ab113f3 Add hello_git.py
+f1adc9c Initial commit: Add README
+cf4312e Add git history
 eb6982b Personalize hello message
 8d1a0ad Add hello_git.py
 8e98a35 Initial commit: Add README
