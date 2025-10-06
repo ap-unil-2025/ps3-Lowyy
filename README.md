@@ -2,7 +2,7 @@
 
 ## Student Information
 Name: Léo Golay
-Date: 1/10/2025
+Date: 6/10/2025
 
 ## Assignment Overview
 This assignment covers Git version control basics and Python fundamentals including variables, control flow, functions, and file I/O.
